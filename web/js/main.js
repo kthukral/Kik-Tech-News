@@ -43,6 +43,13 @@
 				});
 			}
 
+			var refreshPage = $(page).find('#refresh');
+			refreshPage.on('click',function(){
+
+				App.load('articleList');
+
+			});
+
 	});
 
 
