@@ -35,7 +35,7 @@
 					section.clickable();
 					section.on('click',function(){
 
-						App.load('articleView',item);
+						App.load('articleView',item,'scale-in');
 
 					});
 
