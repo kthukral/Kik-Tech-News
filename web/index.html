@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html manifest="cache.manifest">
 	<head>
 		<!-- App details -->
 		<title>Tech Feed</title>
@@ -16,38 +15,35 @@
 
 		<!-- Home Page: List View-->
 
-		<div class ="app-page" data-page="articleList">
+		<div class ="app-page articleListClass" data-page="articleList">
 			<div class="app-topbar">
 				<div class="app-title">World of Technology</div>
 			</div>
 		<div class="app-content">
+			<div class = "list">
+			</div>
 	</div>
 </div>
 
 		<!-- Article View Page -->
 
-		<div class="app-page" data-page="articleView">
+		<div class="app-page" data-page="articleView" class = "articleViewClass">
 			<div class="app-topbar">
 				<div class="app-title" id="articleViewTitle"></div>
-				<div class = "app-button right" id="articleViewHomeButton">Home</div>
+				<div class = "app-button left" data-back="true">Home</div>
 			</div>
 			<div class = "app-content">
-				<div class = "app-section">
-					<img id ="articleViewImage"></img>
-				</div>
-				<div class="app-section">
-					<h4 id="articleViewTitle"></h4>
-				</div>
-				<div class ="app-section">
-					<p id="articleViewArticle"></p>
+				<div class ="articleview">
 				</div>
 			</div>
-			
+		</div>
+
 		
 		<!-- Scripts -->
 		<script src="http://zeptojs.com/zepto.min.js"></script>
 		<script src="http://cdn.kik.com/cards/0/cards.js"></script>
 		<script src="http://cdn.kik.com/app/1/app.js"></script>
+		<script src="http://cdn.kik.com/clickable/1.1.0/clickable.js"></script>
 		<script src="zerver/MyAPI.js"></script>
 		<script src="js/main.js"></script>
 	</body>
