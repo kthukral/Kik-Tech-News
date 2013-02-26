@@ -105,13 +105,17 @@
 						cards.browser.open(item['link']);
 
 					});
-
-					var homeButton = $(page).find('#home');
-					homeButton.on('click',function(){
+					if (cards.kik.returnToConversation) {
+    				// Card was launched by a conversation
+    				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home">Home</div>');
+    				var homeButton = $(page).find('#home');
+						homeButton.on('click',function(){
 
 						App.load('articleList','scale-out')
+					
 
 					});
+				}
 
 	});
 
