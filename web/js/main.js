@@ -106,6 +106,13 @@
 
 					});
 
+					var homeButton = $(page).find('#home');
+					homeButton.on('click',function(){
+
+						App.load('articleList','scale-out')
+
+					});
+
 	});
 
 
