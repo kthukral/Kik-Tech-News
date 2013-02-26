@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+http://cdn.kik.com/app/1/default.css
+css/styles.css
+
+js/zepto.min.js
+http://cdn.kik.com/cards/0/cards.js
+http://cdn.kik.com/app/1/app.js
+zerver/MyAPI.js
+js/main.js
+
+NETWORK:
+*
