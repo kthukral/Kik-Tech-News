@@ -43,10 +43,11 @@
 				});
 			}
 
-			var refreshPage = $(page).find('#refresh');
+			var refreshPage = $(page).find('#titleMainPage');
+			refreshPage.clickable();
 			refreshPage.on('click',function(){
 
-				App.load('articleList');
+				App.load('articleList','fade');
 
 			});
 
