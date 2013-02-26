@@ -2,45 +2,50 @@
 <html manifest="cache.manifest">
 	<head>
 		<!-- App details -->
-		<title>My App</title>
+		<title>Tech Feed</title>
 		<link rel="kik-icon" href="img/icon.png">
 
 		<!-- Styles -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="http://cdn.kik.com/app/1/default.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 
 	<body>
-		<!-- Home page -->
-		<div class="app-page" data-page="home">
-			<div class="app-topbar">
-				<div class="app-title">My App</div>
-			</div>
 
-			<div class="app-content">
+		<!-- Home Page: List View-->
+
+		<div class ="app-page" data-page="articleList">
+			<div class="app-topbar">
+				<div class="app-title">World of Technology</div>
+			</div>
+		<div class="app-content">
+	</div>
+</div>
+
+		<!-- Article View Page -->
+
+		<div class="app-page" data-page="articleView">
+			<div class="app-topbar">
+				<div class="app-title" id="articleViewTitle"></div>
+				<div class = "app-button right" id="articleViewHomeButton">Home</div>
+			</div>
+			<div class = "app-content">
+				<div class = "app-section">
+					<img id ="articleViewImage"></img>
+				</div>
 				<div class="app-section">
-					<div class="app-button green" data-target="page2">Go to page 2</div>
+					<h4 id="articleViewTitle"></h4>
+				</div>
+				<div class ="app-section">
+					<p id="articleViewArticle"></p>
 				</div>
 			</div>
-		</div>
-
-		<!-- Page 2 -->
-		<div class="app-page" data-page="page2">
-			<div class="app-topbar">
-				<div class="left app-button" data-back="true">Back</div>
-				<div class="app-title">Page 2</div>
-			</div>
-
-			<div class="app-content">
-				<div class="app-section">
-					<div class="app-button">MyAPI.ping();</div>
-				</div>
-			</div>
-		</div>
-
+			
+		
 		<!-- Scripts -->
-		<script src="js/zepto.min.js"></script>
+		<script src="http://zeptojs.com/zepto.min.js"></script>
 		<script src="http://cdn.kik.com/cards/0/cards.js"></script>
 		<script src="http://cdn.kik.com/app/1/app.js"></script>
 		<script src="zerver/MyAPI.js"></script>
