@@ -49,3 +49,7 @@ img {
 	margin-top: -3px;
 
 }
+
+.app-section.active:first-child{
+	margin-top: 5px;
+}
