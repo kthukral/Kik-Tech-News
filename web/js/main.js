@@ -48,6 +48,7 @@
 
 			App.populator('articleView',function(page, item){
 
+
 					var articleTitle = item['title'];
 					var articleDescription = item['description'];
 					var articleLink = item['link'];
@@ -59,28 +60,51 @@
 					var temp = $('<div />').html(articleDescription);
 					var image = temp.find('img');
 					var description = temp.find('p').text();
+					var descriptionWithTag = $('<p />');
+					descriptionWithTag.text(description);
 					var title = $('<h4 />');
 					var author = $('<footer />');
+					
+					var kikButton = $(page).find('#kikMe');
 
 					$(page).find('.articleview').append(sectionTitle);
 					sectionTitle.append(title);
 					$(page).find('.articleview').append(secttionImage);
 					secttionImage.append(image);
 					$(page).find('.articleview').append(secttionArticle);
-					secttionArticle.append(description);
+					secttionArticle.append(descriptionWithTag);
 					secttionArticle.append(author);
 
 					title.text(articleTitle);
 					author.text(articleAuthor);
 
+					kikButton.on('click',function(){
+						var x = JSON.stringify(item);
+						var url = image.attr('src');
+						cards.kik.send({
+    				title    : title.text()        ,
+    				text     : 'Check This Out!!'         ,
+    				pic      : url ,       // optional
+    				big      : false                   ,       // optional
+    				linkData : x // optional
+						});
+
+					});
+
+					sectionTitle.clickable();
+					sectionTitle.on('click',function(){
+
+						cards.browser.open(item['link']);
+
+					});
+
+	});
 
 
-
-			});
-
-			try{
-				App.restore();
-			}
-			catch (err) {
-				App.load('articleList');
-			}
+			if (cards.browser && cards.browser.linkData) {
+      // Card was launched by a conversation
+      App.load('articleView', cards.browser.linkData);
+      //cards.kik.returnToConversation(); // return to conversation
+    }else {
+      App.load('articleList');
+    }

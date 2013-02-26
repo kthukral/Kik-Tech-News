@@ -1,8 +1,8 @@
 .articleListClass h4{
 	margin-top: 5px;
-	margin-left: 5px;
+	margin-left: 7px;
 	margin-right: 7px;
-	margin-bottom: 7px;
+	margin-bottom: 5px;
 }
 
 .articleListClass footer{
@@ -17,11 +17,33 @@
 
 img {
 	max-width: 100%;
-	max-height: 100%;
-
+	margin-bottom: -6px;
 }
 
 .articleViewClass p{
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 5px;
+	margin-left: 7px;
+	margin-right: 7px;
+	font-size: 110%;
+}
+
+.articleViewClass footer{
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	font-size: 105%;
+}
+
+.articleViewClass h4{
+	margin-top: 7px;
+	margin-bottom: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+.app-section.active {
+
+	border: 6px solid #AAA;
+
 }
