@@ -107,7 +107,7 @@
 					});
 					if (cards.kik.returnToConversation) {
     				// Card was launched by a conversation
-    				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home">Home</div>');
+    				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home"><</div>');
     				var homeButton = $(page).find('#home');
 						homeButton.on('click',function(){
 
