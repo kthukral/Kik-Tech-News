@@ -140,14 +140,6 @@
 			}
 
 
-			var refreshPage = $(page).find('#titleMainPage');
-			refreshPage.clickable();
-			refreshPage.on('click',function(){
-
-				App.load('articleList','fade');
-
-			});
-
 			slideviewer.on('flip',changeMainTitle);
 
 				function changeMainTitle(slideNum){
@@ -162,6 +154,23 @@
 				}
 
 			}
+
+				var refreshPage = $(page).find('#titleMainPage');
+				refreshPage.clickable();
+				
+				refreshPage.on('click',function(){
+
+				if(refreshPage.text() == 'Engadget'){
+					var passObject = {'list':'engadget'};
+					App.load('articleList',passObject,'fade');
+
+				}else if (refreshPage.text() == 'The Verge'){
+					var passObj = {'list':'verge'};
+					App.load('articleList',passObj,'fade');
+
+				}
+
+			});
 
 		
 
