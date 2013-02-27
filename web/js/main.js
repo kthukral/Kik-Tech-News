@@ -51,6 +51,8 @@
 
 			});
 
+			
+
 	});
 
 
@@ -105,9 +107,10 @@
 						cards.browser.open(item['link']);
 
 					});
-					if (cards.kik.returnToConversation) {
+
+					if (cards.browser && cards.browser.linkData){
     				// Card was launched by a conversation
-    				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home"><</div>');
+    				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home">Home</div>');
     				var homeButton = $(page).find('#home');
 						homeButton.on('click',function(){
 
