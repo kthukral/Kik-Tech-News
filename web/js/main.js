@@ -172,6 +172,7 @@
 
 			App.populator('articleView',function(page, data){
 
+
 					var item = data['item'];
 					var list = data['list'];
 					//console.log(list);
@@ -186,7 +187,7 @@
 					var secttionImage = $('<div />').addClass('app-section');
 					var temp = $('<div />').html(articleDescription);
 					var image = temp.find('img');
-					var description = temp.find('p').text();
+					var description = temp.text();
 					var descriptionWithTag = $('<p />');
 					descriptionWithTag.text(description);
 					var title = $('<h4 />');
