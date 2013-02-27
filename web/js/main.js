@@ -1,6 +1,7 @@
 			
 			App.populator('articleList',function(page,feed){
 
+
 				var feedNum;
 
 				if(feed['list'] === 'verge'){
@@ -12,6 +13,8 @@
 				}else {
 					feedNum = 0;
 				}
+
+				changeMainTitle(feedNum);
 
 				var wrapper = page.querySelector('.wrapper');
 				
@@ -144,6 +147,23 @@
 				App.load('articleList','fade');
 
 			});
+
+			slideviewer.on('flip',changeMainTitle);
+
+				function changeMainTitle(slideNum){
+
+
+				if(slideNum == 0){
+
+					$(page).find('#titleMainPage').text('The Verge');
+
+				}else if(slideNum == 1){
+					$(page).find('#titleMainPage').text('Engadget');
+				}
+
+			}
+
+		
 
 
 
