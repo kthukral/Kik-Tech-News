@@ -70,3 +70,7 @@ img {
 .app-content{
 	background-color: #D3D3D3;
 }
+
+.wrapper {
+	height: 100%;
+}
