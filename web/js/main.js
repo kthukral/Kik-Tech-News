@@ -28,6 +28,10 @@
 				
 				if(App.platform == 'android'){
 					slideviewer.disable3d();
+					slideviewer.on('move',function(){
+						slideviewer.enable3d();
+					});
+
 				}
 
 				page.addEventListener('appLayout', function () {
@@ -149,6 +153,10 @@
 			slideviewer.on('flip',changeMainTitle);
 
 				function changeMainTitle(slideNum){
+
+					if(App.platform == 'android' && slideviewer){
+						slideviewer.disable3d();
+					}
 
 
 				if(slideNum == 0){

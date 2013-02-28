@@ -50,6 +50,12 @@ img {
 	margin-bottom: -3px;
 	margin-top: -3px;
 
+
+
+}
+
+.app-section {
+	-webkit-tap-highlight-color: purple; 
 }
 
 .app-section.active:first-child{

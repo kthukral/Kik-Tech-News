@@ -214,6 +214,11 @@ var SlideViewer = (function (Zepto, jQuery) {
 			setPos(xPos);
 		}
 
+		self.enable3d = function () {
+			use3dAcceleration = true;
+			setPos(xPos);
+		}
+
 		function setPos (x) {
 			var transform = prefixStyle('transform');
 			xPos = x;
