@@ -24,6 +24,12 @@
 					length: 2,
 				});
 
+				/* If the device is an android then the slideviwer will disable 3d as 3d makes android fucked*/ 
+				
+				if(App.platform == 'android'){
+					slideviewer.disable3d();
+				}
+
 				page.addEventListener('appLayout', function () {
 					slideviewer.refreshSize();
 				});
