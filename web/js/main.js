@@ -185,6 +185,7 @@
 					var item = data['item'];
 					var list = data['list'];
 					//console.log(list);
+					var continueButton = $(page).find('#continue');
 
 					var articleTitle = item['title'];
 					var articleDescription = item['description'];
@@ -196,7 +197,7 @@
 					var secttionImage = $('<div />').addClass('app-section');
 					var temp = $('<div />').html(articleDescription);
 					var image = temp.find('img');
-					var description = temp.text();
+					var description = temp.text().replace('Continue reading', '').replace('…', '');
 					var descriptionWithTag = $('<p />');
 					descriptionWithTag.text(description);
 					var title = $('<h4 />');
@@ -228,8 +229,14 @@
 
 					});
 
-					sectionTitle.clickable();
-					sectionTitle.on('click',function(){
+					//sectionTitle.clickable();
+					//sectionTitle.on('click',function(){
+
+						//cards.browser.open(item['link']);
+
+					//});
+
+					continueButton.on('click',function(){
 
 						cards.browser.open(item['link']);
 
