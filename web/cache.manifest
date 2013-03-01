@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+img/appIcon.png
+img/bigger-loader.gif
+
+http://zeptojs.com/zepto.min.js
+http://cdn.kik.com/cards/0/cards.js
+http://cdn.kik.com/app/1/app.js
+http://cdn.kik.com/clickable/1.1.0/clickable.js
+js/slide-viewer.js
+js/dispatcher.js
+zerver/MyAPI.js
+js/main.js
+
+NETWORK:
+*
