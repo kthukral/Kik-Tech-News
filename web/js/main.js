@@ -17,6 +17,7 @@
 				changeMainTitle(feedNum);
 
 				var wrapper = page.querySelector('.wrapper');
+				wrapper.innerHTML = '';
 				
 				var slideviewer = new SlideViewer(wrapper, source, {
 					//startAt: parseInt(data.index, 2),
