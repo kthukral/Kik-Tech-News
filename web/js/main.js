@@ -206,6 +206,7 @@
 
 			App.populator('articleView',function(page, data){
 
+					//Grabing certain tags from the rss feed
 
 					var item = data['item'];
 					var list = data['list'];
@@ -216,6 +217,8 @@
 					var articleDescription = item['description'];
 					var articleLink = item['link'];
 					var articleAuthor = item['author'];
+
+					//Adding sections and appending them to the app page
 
 					var sectionTitle = $('<div />').addClass('app-section');
 					var secttionArticle = $('<div />').addClass('app-section');
@@ -240,6 +243,8 @@
 
 					title.text(articleTitle);
 					author.text(articleAuthor);
+
+					//Kik button to share the article over a Kik
 
 					kikButton.on('click',function(){
 						var x = JSON.stringify(data);
@@ -267,6 +272,8 @@
 
 					});
 
+					//If the card is open from a Kik, it replaces the back button with home button
+
 					if (cards.browser && cards.browser.linkData){
     				// Card was launched by a conversation
     				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home">Home</div>');
@@ -282,7 +289,8 @@
 
 	});
 
-
+			//If card is opened from a kik it will open in article page otherwise, it will open the 
+			//list page
 			if (cards.browser && cards.browser.linkData) {
       // Card was launched by a conversation
       App.load('articleView', cards.browser.linkData);
