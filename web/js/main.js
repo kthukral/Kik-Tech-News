@@ -4,6 +4,8 @@
 
 				var feedNum;
 
+				//Determining weather to load articles from verge or engadget
+
 				if(feed['list'] === 'verge'){
 					feedNum = 0;
 				}else if(feed['list'] === 'engadget'){
@@ -14,18 +16,20 @@
 					feedNum = 0;
 				}
 
-				changeMainTitle(feedNum);
+				changeMainTitle(feedNum); //Changing the navigation bar title
+
+				//Initializing a wrapper variable for slide viewer
 
 				var wrapper = page.querySelector('.wrapper');
 				wrapper.innerHTML = '';
 				
+				//Initializing a slideviewer variable
 				var slideviewer = new SlideViewer(wrapper, source, {
-					//startAt: parseInt(data.index, 2),
 					startAt: feedNum,
 					length: 2,
 				});
 
-				/* If the device is an android then the slideviwer will disable 3d as 3d makes android fucked*/ 
+				/* If the device is an android then the slideviwer will disable 3d and enable it when the slide viewer moves*/ 
 				
 				if(App.platform == 'android'){
 					slideviewer.disable3d();
@@ -38,6 +42,10 @@
 				page.addEventListener('appLayout', function () {
 					slideviewer.refreshSize();
 				});
+
+				//Depending on the source (Verge or Engadget) the code calls feedparser methods defined 
+				//in MYAPI.js to fetch the articles from the correct RSS feeds and then calls a method
+				//to pouplate the list page
 
 				function source(i){
 
@@ -67,16 +75,18 @@
 			
 
 			function populateVergeArticleList(data,list){
-				console.log(data);
+				console.log(data); //logging data to ensure, correct rss feed is used
+				//Runs for each article in the rss feeds
 				data.forEach(function (item){
 
+					//grab certain tags from rss fieds and assign them to local variables
 					var articleTitle = item['title'];
 					var articleDescription = item['description'];
-					var articleDate = item['pubDate'];
-					var articleLink = item['link'];
 					var articleAuthor = item['author'];
 
-					//var list = $('<div />');
+					//Appending individual parts to app page to populate list
+
+					
 					var section = $('<div />').addClass('app-section');
 					var temp = $('<div />').html(articleDescription);
 					var description = temp.find('p').text();
@@ -196,6 +206,7 @@
 
 			App.populator('articleView',function(page, data){
 
+					//Grabing certain tags from the rss feed
 
 					var item = data['item'];
 					var list = data['list'];
@@ -206,6 +217,8 @@
 					var articleDescription = item['description'];
 					var articleLink = item['link'];
 					var articleAuthor = item['author'];
+
+					//Adding sections and appending them to the app page
 
 					var sectionTitle = $('<div />').addClass('app-section');
 					var secttionArticle = $('<div />').addClass('app-section');
@@ -230,6 +243,8 @@
 
 					title.text(articleTitle);
 					author.text(articleAuthor);
+
+					//Kik button to share the article over a Kik
 
 					kikButton.on('click',function(){
 						var x = JSON.stringify(data);
@@ -257,6 +272,8 @@
 
 					});
 
+					//If the card is open from a Kik, it replaces the back button with home button
+
 					if (cards.browser && cards.browser.linkData){
     				// Card was launched by a conversation
     				$(page).find('#originalHome').replaceWith('<div class ="app-button left" id="home">Home</div>');
@@ -272,7 +289,8 @@
 
 	});
 
-
+			//If card is opened from a kik it will open in article page otherwise, it will open the 
+			//list page
 			if (cards.browser && cards.browser.linkData) {
       // Card was launched by a conversation
       App.load('articleView', cards.browser.linkData);
